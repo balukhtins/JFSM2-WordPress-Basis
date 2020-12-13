@@ -7,6 +7,8 @@
  * @package DevIT-Basis
  */
 
+require_once get_template_directory() . '/Header_Menu.php';
+
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
 	define( '_S_VERSION', '1.0.0' );
@@ -50,7 +52,8 @@ if ( ! function_exists( 'devit_basis_setup' ) ) :
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
 			array(
-				'menu-1' => esc_html__( 'Primary', 'devit-basis' ),
+				'menu-header' => esc_html__( 'Header Menu', 'devit-basis' ),
+				'menu-footer' => esc_html__( 'Footer Menu', 'devit-basis' ),
 			)
 		);
 
@@ -141,9 +144,14 @@ add_action( 'widgets_init', 'devit_basis_widgets_init' );
  */
 function devit_basis_scripts() {
 	wp_enqueue_style( 'devit-basis-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_style_add_data( 'devit-basis-style', 'rtl', 'replace' );
+    wp_enqueue_style( 'devit-basis-bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css' );
+    wp_enqueue_style( 'devit-basis-font-open-sans', '://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap' );
+    wp_enqueue_style( 'devit-basis-main', get_template_directory_uri().'/assets/css/main.css', array(), _S_VERSION );
+
+    wp_style_add_data( 'devit-basis-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'devit-basis-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'devit-basis-bootstrap-bundle-js', '//cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js', array('jquery'), '', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

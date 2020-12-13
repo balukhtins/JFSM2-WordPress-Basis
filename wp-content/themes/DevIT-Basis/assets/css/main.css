@@ -1,0 +1,59 @@
+
+/*style for header*/
+#masthead {
+    background-color: #a8def1;
+}
+
+.site-title span{
+    padding-left: 3px;
+}
+
+img {
+    vertical-align: baseline;
+}
+
+.site-title a,
+.site-title a:hover,
+.site-title a:focus,
+.site-title a:active,
+.site-title a:visited {
+    outline: none;
+    text-decoration: none;
+    color: black;
+}
+
+.site-title {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.guidance-title {
+    padding: 0 0 0 96px;
+}
+
+#site-navigation a,
+.btn-aut {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+#site-navigation .dropdown-menu li a:hover {
+    background-image: url(../images/Rectangle896copy.png);
+    background-repeat: no-repeat;
+    /*display: inline;*/
+}
+
+#site-navigation .dropdown-menu li a {
+    font-size: 14px;
+}
+
+.btn-aut {
+    background-color: #d92727;
+}
+
+.btn-header {
+    padding-left: 5%;
+}
+
