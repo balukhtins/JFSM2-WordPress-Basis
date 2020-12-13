@@ -1,4 +1,11 @@
 
+
+* {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+}
+
 /*style for header*/
 #masthead {
     background-color: #a8def1;
@@ -42,18 +49,71 @@ img {
 #site-navigation .dropdown-menu li a:hover {
     background-image: url(../images/Rectangle896copy.png);
     background-repeat: no-repeat;
-    /*display: inline;*/
 }
 
 #site-navigation .dropdown-menu li a {
     font-size: 14px;
 }
 
-.btn-aut {
+.btn-aut,
+.btn-delite{
     background-color: #d92727;
 }
 
 .btn-header {
     padding-left: 5%;
+}
+
+/*style for body*/
+body {
+    background-color: white;
+    background-image: url("../images/Vector_Smart_Object.png");
+    background-repeat: no-repeat;
+    background-position: 0 100px;
+    background-size: cover;
+}
+
+/*style for form*/
+.btn-plus {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 3px;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+}
+
+.form-body {
+    margin-top: 53px;
+    color: #666666;
+    width: 553px;
+    border-radius: 5px;
+    box-shadow: 6px 0 28px 1px rgba(80, 80, 80, .14);
+    /*padding: 30px 30px;*/
+    background: #fff;
+}
+
+.form-body .row {
+    padding: 30px 30px;
+}
+
+.form-body .phone {
+    padding: 0 0;
+    margin: 0 0;
+}
+
+.form-body .phone-left {
+    padding-left: 0 ;
+}
+
+.form-body .phone-right {
+    padding-right: 0 ;
+}
+
+.btn-delite {
+    color: #fff;
+    font-size: 12px;
+    height: calc(1.5em + 1.18rem + 2px);
+    width: 100%;
+    padding: 3px;
 }
 
