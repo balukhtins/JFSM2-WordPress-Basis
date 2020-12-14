@@ -24,17 +24,18 @@
 
 	<header id="masthead" class="container-fluid">
         <div class="row align-items-center">
-        <div class="col-md-3 guidance-title">
+
+        <div class="offset-md-1 col-md-3 guidance-title order-sm-1 order-1 col-4">
             <?php
 			//the_custom_logo();
 
 				?>
                 <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?><span><img src="<?php echo get_template_directory_uri()?>/assets/images/Rectangle 898.png"</span></a></h1>
 
-            </div>
+         </div>
 
 
-        <div class="col-md-7">
+        <div class="col-md-5  col-sm-2 col-5 order-sm-2 order-3">
 		<nav id="site-navigation" class="navbar navbar-expand-lg navbar-light">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -55,8 +56,12 @@
 		</nav>
         </div>
 
-        <div class="col btn-header">
-            <button type="button" class="btn btn-aut">Authorization</button>
+        <div class="col-md-2 col-4 btn-header offset-md-1 offset-sm-2 offset-3 order-sm-3 order-2">
+            <div class="row justify-content-end">
+                <div class="col">
+                    <button type="button" class="btn btn-aut">Authorization</button>
+                </div>
+            </div>
         </div>
         </div>
 	</header>

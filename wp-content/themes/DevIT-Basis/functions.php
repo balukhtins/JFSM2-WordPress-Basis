@@ -54,6 +54,8 @@ if ( ! function_exists( 'devit_basis_setup' ) ) :
 			array(
 				'menu-header' => esc_html__( 'Header Menu', 'devit-basis' ),
 				'menu-footer' => esc_html__( 'Footer Menu', 'devit-basis' ),
+				'menu-courses' => esc_html__( 'Courses Menu', 'devit-basis' ),
+				'menu-interesting' => esc_html__( 'Interesting Menu', 'devit-basis' ),
 			)
 		);
 
@@ -132,8 +134,8 @@ function devit_basis_widgets_init() {
 			'description'   => esc_html__( 'Add widgets here.', 'devit-basis' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
+			'before_title'  => '<p class="widget-title">',
+			'after_title'   => '</p>',
 		)
 	);
 }

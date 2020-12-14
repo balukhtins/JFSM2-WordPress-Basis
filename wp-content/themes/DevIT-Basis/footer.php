@@ -12,19 +12,59 @@
 ?>
 
 	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'devit-basis' ) ); ?>">
-				<?php
+
+        <div class="col-md-7 footer-menu">
+            <nav id="site-navigation" class="navbar navbar-expand-lg navbar-light">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <?php
+                    wp_nav_menu(
+                        array(
+                            'theme_location' => 'menu-footer',
+                            'menu_id'        => 'foter-menu-1',
+                            'container' => false,
+                            'menu_class' => 'navbar-nav mr-auto',
+                            'walker' => new Header_Menu,
+                        )
+                    );
+                    ?>
+                </div>
+            </nav>
+        </div>
+        <hr>
+
+       <?php get_sidebar(); ?>
+
+        <hr>
+
+        <div class="container policy">
+            <div class="row">
+                <div class="col-md-2 offset-md-8">
+                    Terms of Service
+                </div>
+                <div class="col-md-2">
+                    Privacy policy
+                </div>
+            </div>
+        </div>
+
+
+
+		<!--<div class="site-info">
+			<a href="<?php /*echo esc_url( __( 'https://wordpress.org/', 'devit-basis' ) ); */?>">
+				--><?php
 				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'devit-basis' ), 'WordPress' );
-				?>
+				/*printf( esc_html__( 'Proudly powered by %s', 'devit-basis' ), 'WordPress' );
+				*/?><!--
 			</a>
 			<span class="sep"> | </span>
-				<?php
+				--><?php
 				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'devit-basis' ), 'devit-basis', '<a href="http://underscores.me/">Balukhtin</a>' );
-				?>
-		</div><!-- .site-info -->
+				/*printf( esc_html__( 'Theme: %1$s by %2$s.', 'devit-basis' ), 'devit-basis', 'Balukhtin' );
+				*/?><!--
+		</div>--><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
