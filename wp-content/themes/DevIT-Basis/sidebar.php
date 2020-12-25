@@ -16,12 +16,29 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
     <div class="container">
         <div class="row">
 	        <?php dynamic_sidebar( 'sidebar-1' ); ?>
+
+            <?php if(!is_active_sidebar('sidebar-1')):?>
+                <section id="nav_menu-2" class="widget widget_nav_menu"><p class="widget-title">Courses</p><div class="menu-courses-container"><ul id="menu-courses" class="menu"><li id="menu-item-34" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-34"><a href="#">Project management</a></li>
+                            <li id="menu-item-35" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-35"><a href="#">Android development</a></li>
+                            <li id="menu-item-36" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-36"><a href="#">Online marketing</a></li>
+                            <li id="menu-item-37" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-37"><a href="#">Front-end developer</a></li>
+                        </ul></div></section>
+
+                <section id="nav_menu-3" class="widget widget_nav_menu"><p class="widget-title">Interesting</p><div class="menu-interesting-container"><ul id="menu-interesting" class="menu"><li id="menu-item-38" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-38"><a href="#">Blog</a></li>
+                            <li id="menu-item-39" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-39"><a href="#">Youtube</a></li>
+                            <li id="menu-item-40" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-40"><a href="#">Team</a></li>
+                            <li id="menu-item-41" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-41"><a href="#">Community</a></li>
+                        </ul></div></section>
+            <?php endif;
+            //print_r(get_option( 'devit_api_settings' ));
+            ?>
+
+
+
+
             <div class="col-md social">
                 <p>Social networks</p>
-                <img src="http://test-dev-it/wp-content/uploads/2020/12/twitter-logo-button.png" class="image wp-image-47  attachment-full size-full" alt="" loading="lazy" style="max-width: 100%; height: auto;" width="40" height="42">
-                <img src="http://test-dev-it/wp-content/uploads/2020/12/linkedin-button.png" class="image wp-image-48  attachment-full size-full" alt="" loading="lazy" style="max-width: 100%; height: auto;" width="40" height="40">
-                <img src="http://test-dev-it/wp-content/uploads/2020/12/facebook-logo-button-1.png" class="image wp-image-49  attachment-full size-full" alt="" loading="lazy" style="max-width: 100%; height: auto;" width="40" height="40">
-                <img src="http://test-dev-it/wp-content/uploads/2020/12/instagram-1.png" class="image wp-image-46  attachment-full size-full" alt="" loading="lazy" style="max-width: 100%; height: auto;" width="40" height="40">
+                <?php get_template_part( 'template-parts/social_networks' );?>
             </div>
         </div>
     </div>

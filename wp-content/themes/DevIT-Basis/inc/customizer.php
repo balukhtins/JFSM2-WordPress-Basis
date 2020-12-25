@@ -59,3 +59,26 @@ function devit_basis_customize_preview_js() {
 	wp_enqueue_script( 'devit-basis-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), _S_VERSION, true );
 }
 add_action( 'customize_preview_init', 'devit_basis_customize_preview_js' );
+
+function devit_basis_customize_social_networks( $wp_customize ) {
+
+    $wp_customize->add_section( 'social_networks' , array(
+        'title'      => __( 'Social networks', 'devit-basis' ),
+        'priority'   => 30,
+    ) );
+    $wp_customize->add_setting( 'get_social_networks' , array(
+        'transport' => 'refresh',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Image_Control(
+        $wp_customize,
+        'logo',
+        array(
+            'label'      => __( 'Выбирите Логотип', 'devit-basis' ),
+            'section'    => 'social_networks',
+            'settings'   => 'get_social_networks',
+            'width' => '40',
+            'height' => '42',
+        )
+    ) );
+}
+add_action( 'customize_register', 'devit_basis_customize_social_networks' );

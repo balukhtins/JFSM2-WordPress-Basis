@@ -30,6 +30,27 @@
                         )
                     );
                     ?>
+
+                    <?php if(!is_nav_menu('Footer Menu-1')):?>
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="<?php echo esc_url( home_url( '/' ) );?>">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Courses</a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="#">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link disabled" href="#">Video</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link disabled" href="#">Interesting</a>
+                            </li>
+                        </ul>
+                    <?php endif;?>
+
                 </div>
             </nav>
         </div>

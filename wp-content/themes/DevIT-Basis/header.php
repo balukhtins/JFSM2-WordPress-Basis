@@ -27,11 +27,10 @@
 
         <div class="offset-md-1 col-md-3 guidance-title order-sm-1 order-1 col-4">
             <?php
-			//the_custom_logo();
-
-				?>
+            if (has_custom_logo()) : the_custom_logo();
+                else:?>
                 <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?><span><img src="<?php echo get_template_directory_uri()?>/assets/images/Rectangle 898.png"</span></a></h1>
-
+            <?php endif;?>
          </div>
 
 
@@ -52,6 +51,27 @@
 				)
 			);
 			?>
+
+                <?php if(!is_nav_menu('Header Menu')):?>
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="<?php echo esc_url( home_url( '/' ) );?>">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Courses</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#">Video</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#">Interesting</a>
+                        </li>
+                    </ul>
+                <?php endif;?>
+
             </div>
 		</nav>
         </div>
@@ -59,7 +79,7 @@
         <div class="col-md-2 col-4 btn-header offset-md-1 offset-sm-2 offset-3 order-sm-3 order-2">
             <div class="row justify-content-end">
                 <div class="col">
-                    <button type="button" class="btn btn-aut">Authorization</button>
+                    <button type="submit" class="btn btn-aut"  form="form-guidance">Authorization</button>
                 </div>
             </div>
         </div>
