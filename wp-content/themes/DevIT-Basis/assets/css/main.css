@@ -58,6 +58,7 @@ img {
 }*/
 
 /*style for body*/
+
 #primary {
     background-color: white;
     background-image: url("../images/Vector_Smart_Object.png");
@@ -84,7 +85,7 @@ img {
 .form-body {
     margin-top: 53px;
     color: #666666;
-    width: 553px;
+    max-width: 553px;
     border-radius: 5px;
     box-shadow: 6px 0 28px 1px rgba(80, 80, 80, .14);
     background: #fff;
@@ -207,7 +208,7 @@ hr {
 }
 
 footer .footer-menu {
-    margin-left: 2.5%;
+    /*margin-left: 2.5%;*/                                      /*    */
 }
 
 .social img {
@@ -224,5 +225,11 @@ footer .footer-menu {
     .phone-right {
         padding: 0;
         margin-bottom: 16px;
+    }
+}
+
+@media (max-width: 575px) {
+    .btn-aut{
+        margin-top: 6px;
     }
 }

@@ -8,7 +8,6 @@ wp-content/*
 !wp-content/plugins/
 !wp-content/themes/
 wp-content/themes/DevIT-Basis/_index.php
-wp-content/themes/DevIT-Basis/inc/view_contact_form_shortcode.php
 
 # ignore these plugins
 wp-content/plugins/hello.php

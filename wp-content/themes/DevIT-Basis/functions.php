@@ -191,19 +191,10 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+/**
+ * Shortcode for contact form.
+ */
+require get_template_directory() . '/inc/view_contact_form_shortcode.php';
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+add_shortcode('devit_contact_form', 'view_contact_form_shortcode');
 
