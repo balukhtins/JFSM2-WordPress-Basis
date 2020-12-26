@@ -195,6 +195,10 @@ if ( defined( 'JETPACK__VERSION' ) ) {
  * Shortcode for contact form.
  */
 require get_template_directory() . '/inc/view_contact_form_shortcode.php';
-
 add_shortcode('devit_contact_form', 'view_contact_form_shortcode');
 
+/**
+ * Custom Post Type - devit_contact_form
+ */
+require get_template_directory() . '/inc/my_custom_post_type.php';
+add_action('init', 'my_custom_post_type');
