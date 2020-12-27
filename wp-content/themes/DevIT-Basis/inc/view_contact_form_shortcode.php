@@ -25,7 +25,7 @@ function view_contact_form_shortcode($atts){
                         <input type="text" class="form-control" id="phone-two" required>
                     </div>
                     <div class="col-md-3 phone-right">
-                        <button type="button" class="btn btn-delite">Удалить</button>
+                        <button type="button" class="btn btn-delite" id="btn-delite">Удалить</button>
                     </div>
                 </div>
                 <div class="form-group">
@@ -41,13 +41,7 @@ function view_contact_form_shortcode($atts){
                         </div>
                     </div>
                 </div>
-
-
-
-
-
-
-                <div class="form-group">
+               <div class="form-group">
                     <label for="exampleFormControlTextarea1">Резюме</label>
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
                 </div>

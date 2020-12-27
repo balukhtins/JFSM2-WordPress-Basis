@@ -200,5 +200,67 @@ add_shortcode('devit_contact_form', 'view_contact_form_shortcode');
 /**
  * Custom Post Type - devit_contact_form
  */
-require get_template_directory() . '/inc/my_custom_post_type.php';
-add_action('init', 'my_custom_post_type');
+/*require get_template_directory() . '/inc/my_custom_post_type.php';
+add_action('init', 'my_custom_post_type');*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * create_table devit_contact_form
+ */
+/*function create_table() {
+    global $wpdb;
+
+    require_once ABSPATH . 'wp-admin/includes/upgrade.php';
+
+    $table_name = $wpdb->get_blog_prefix() . 'devit_contact_form';
+    $charset_collate = "DEFAULT CHARACTER SET {$wpdb->charset} COLLATE {$wpdb->collate}";
+
+    $sql = "CREATE TABLE {$table_name} (
+	id  bigint(20) unsigned NOT NULL auto_increment,
+	name varchar(255) NOT NULL default '',
+	email varchar(100) NOT NULL UNIQUE default '',
+	phone-1 bigint(30) NOT NULL UNIQUE default '',
+	phone-2 bigint(30) default '',
+	age int(11) NOT NULL default '',
+	photo varchar(255) default '',
+	resume longtext NOT NULL default '',
+	PRIMARY KEY  (id)
+	)
+	{$charset_collate};";
+
+    dbDelta($sql);
+}
+
+create_table();*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -21,4 +21,6 @@ function my_custom_post_type(){
         'menu_position'      => null,
         'supports'           => array('title','editor','author','thumbnail','excerpt','comments')
     ) );
+
+
 }
