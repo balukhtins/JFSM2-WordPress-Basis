@@ -82,9 +82,15 @@ function devit_contact_form_settings_section_callback( ) {
 
 function devit_contact_form_field_0_render( ) {
     //$options = get_option( 'devit_contact_form_settings' );
+    global $wpdb;
+    $table_name = $wpdb->get_blog_prefix() . 'devit_contact_form';
+    $res = $wpdb->get_results( "SELECT * FROM {$table_name}" );
     ?>
     <a href="">
-        '<?php echo "Какой-то пользователь" ?>'
+        <?php
+        //print_r($res);
+        echo $res[0]->name;
+        ?>
     </a>
     <hr>
     <?php
