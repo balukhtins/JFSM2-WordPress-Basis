@@ -29,7 +29,7 @@ function devit_contact_form_create_table() {
 	)
 	{$charset_collate};";
 
-     dbDelta($sql);
+    if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") != $table_name) dbDelta($sql);
 }
 
 register_activation_hook(__FILE__, 'devit_contact_form_create_table');
