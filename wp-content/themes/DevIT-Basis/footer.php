@@ -13,19 +13,20 @@
 
 	<footer id="colophon" class="site-footer">
 
-        <div class="col-md-7 footer-menu">
-            <nav id="site-navigation" class="navbar navbar-expand-lg navbar-light">
+        <div class="container <!--offset-md-1--> footer-menu">
+            <div class="row">
+            <!--<nav id="site-navigation" class="navbar navbar-expand-lg navbar-light">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">-->
                     <?php
                     wp_nav_menu(
                         array(
                             'theme_location' => 'menu-footer',
-                            'menu_id'        => 'foter-menu-1',
+                            'menu_id'        => 'footer-menu-1',
                             'container' => false,
-                            'menu_class' => 'navbar-nav mr-auto',
+                            'menu_class' => 'nav mr-auto',
                             'walker' => new Header_Menu,
                         )
                     );
@@ -51,8 +52,8 @@
                         </ul>
                     <?php endif;?>
 
-                </div>
-            </nav>
+            </div>
+            <!--</nav>-->
         </div>
         <hr>
 

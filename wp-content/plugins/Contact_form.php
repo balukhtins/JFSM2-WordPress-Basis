@@ -39,8 +39,8 @@ register_activation_hook(__FILE__, 'devit_contact_form_create_table');
  * Add page Contact Form
  */
 
-$table_name = $wpdb->get_blog_prefix() . 'devit_contact_form';
-$devit_count = $wpdb->get_var( "SELECT COUNT(*) FROM {$table_name};" );
+$table_name = $wpdb->prefix . 'devit_contact_form';
+//$devit_count = $wpdb->get_var( "SELECT COUNT(*) FROM {$table_name};" );
 
 function devit_contact_form_pages(){
     add_menu_page('Contact Form', 'Contact Form', 'manage_options', 'devit_contact_form', 'devit_contact_form_options_page');
@@ -87,7 +87,7 @@ function devit_contact_form_field_0_render( ) {
     //$options = get_option( 'devit_contact_form_settings' );
     global $wpdb;
     global $table_name;
-    global $devit_count;
+    //global $devit_count;
     //$table_name = $wpdb->get_blog_prefix() . 'devit_contact_form';
     $res = $wpdb->get_results( "SELECT * FROM {$table_name}" );
     foreach($res as $result){

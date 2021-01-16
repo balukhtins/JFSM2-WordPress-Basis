@@ -23,9 +23,9 @@
 <div id="page" class="site">
 
 	<header id="masthead" class="container-fluid">
-        <div class="row align-items-center">
+        <div class="row header-row <!--align-items-center--> justify-content-sm-between">
 
-        <div class="offset-md-1 col-md-3 guidance-title order-sm-1 order-1 col-4">
+        <div class="<!--offset-md-1--> col-md-3 col-7 guidance-title order-sm-1 order-1 col-4 col-lg-2">
             <?php
             if (has_custom_logo()) : the_custom_logo();
                 else:?>
@@ -34,7 +34,7 @@
          </div>
 
 
-        <div class="col-md-5  col-sm-2 col-5 order-sm-2 order-3">
+        <div class="col-md-6 col-5 order-md-2 order-3 col-lg-8">
 		<nav id="site-navigation" class="navbar navbar-expand-lg navbar-light">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -76,9 +76,9 @@
 		</nav>
         </div>
 
-        <div class="col-md-2 col-4 btn-header offset-md-1 offset-sm-2 offset-3 order-sm-3 order-2">
-            <div class="row justify-content-end">
-                <div class="col">
+        <div class="col-md-3 col-sm col-4 btn-header <!--offset-md-1--> <!--offset-sm-2 offset-3--> order-md-3 order-2 col-lg-2">
+            <div class="row justify-content-center justify-content-sm-end">
+                <div class="col-9">
                     <button type="submit" class="btn btn-aut"  form="form-guidance">Authorization</button>
                 </div>
             </div>
