@@ -201,6 +201,58 @@ add_shortcode('devit_contact_form', 'view_contact_form_shortcode');
  */
 require get_template_directory() . '/inc/devit_ajax.php';
 
+/**
+ * Добавляем поля в профиль пользователей
+ */
+function show_profile_fields( $user ) { ?>
+    <h3>Дополнительная информация пользователя</h3>
+    <table class="form-table">
+        <tr><th><label for="phone-1">Телефон-1</label></th>
+            <td><input type="text" name="phone-1" id="phone-1" value="<?php echo esc_attr(get_the_author_meta('phone_1',$user->ID));?>" class="regular-text" /><br /></td>
+        </tr>
+        <tr><th><label for="phone-2">Телефон-2</label></th>
+            <td><input type="text" name="phone-2" id="phone-2" value="<?php echo esc_attr(get_the_author_meta('phone_2',$user->ID));?>" class="regular-text" /><br /></td>
+        </tr>
+        <tr><th><label for="age">Возраст</label></th>
+            <td><input type="text" name="age" id="age" value="<?php echo esc_attr(get_the_author_meta('age',$user->ID));?>" class="regular-text" /><br /></td>
+        </tr>
+    </table>
+
+    <?php
+    if( current_user_can('manage_options') ){
+        ?>
+        <h3>Бан</h3>
+        <table class="form-table">
+            <tr><th><label for="ban">Бан</label></th>
+                <td><?php $ban = get_the_author_meta('ban',$user->ID ); ?>
+                    <input name="ban"<?php if ($ban == 'on') { ?> checked="checked"<?php } ?> type="checkbox" />
+                </td>
+            </tr>
+        </table>
+        <?php
+    }
+    ?>
+
+<?php }
+add_action( 'show_user_profile', 'show_profile_fields' );
+add_action( 'edit_user_profile', 'show_profile_fields' );
+
+function save_profile_fields( $user_id ) {
+    update_usermeta( $user_id, 'phone_1', $_POST['phone-1'] );
+    update_usermeta( $user_id, 'phone_2', $_POST['phone-2'] );
+    update_usermeta( $user_id, 'ban', $_POST['ban'] );
+
+}
+
+add_action( 'personal_options_update', 'save_profile_fields' );
+add_action( 'edit_user_profile_update', 'save_profile_fields' );
+
+//скрытие панели для всех кроме админов start
+function wph_del_toolbar($content) {
+    return (current_user_can("administrator")) ? $content : false;
+}
+add_filter('show_admin_bar' , 'wph_del_toolbar');
+
 
 /**
  * Custom Post Type - devit_contact_form

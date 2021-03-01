@@ -32,11 +32,16 @@ function my_ajax_handler() {
         if (!$_POST['name'] || !$_POST['email'] || !$_POST['age'] || !$_POST['phone-1'] || !$_POST['resume'] || !$_FILES['photo']) wp_send_json_error('Нужно заполнить все поля.');
 
         //Проверка на уникальность e-mail и телефона
-        global $wpdb;
-        $table_name = $wpdb->get_blog_prefix() . 'devit_contact_form';
-        $res = $wpdb->get_results( "SELECT email FROM {$table_name} WHERE email='" . $_POST['email'] . "'" );
-        if ($res) wp_send_json_error('Такой e-mail уже есть.');
-        if ($wpdb->get_results( "SELECT phone_1 FROM {$table_name} WHERE phone_1='" . $_POST['phone-1'] . "'" )) wp_send_json_error('Такой телефон уже есть.');
+        //global $wpdb;
+        //$table_name = $wpdb->get_blog_prefix() . 'usermeta';
+        //$res = $wpdb->get_results( "SELECT user_email FROM {$table_name} WHERE user_email='" . $_POST['email'] . "'" );
+        //if ($res) wp_send_json_error('Такой e-mail уже есть.');
+        //if ($wpdb->get_results( "SELECT phone_1 FROM {$table_name} WHERE phone_1='" . $_POST['phone-1'] . "'" )) wp_send_json_error('Такой телефон уже есть.');
+
+
+
+
+
 
         //Если загружена картинка сохраняем
         if( !($_FILES) ){
@@ -69,7 +74,7 @@ function my_ajax_handler() {
         }
 
         // Сохраняем в базу данных
-        if (!$wpdb->insert(
+        /*if (!$wpdb->insert(
             $table_name,
             array(
                 'name' => $_POST['name'],
@@ -80,7 +85,29 @@ function my_ajax_handler() {
                 'photo' => $uploaded_imgs,
                 'resume' => $_POST['resume'] )
         )) wp_send_json_error('Данные не отправлены, попробуйте еще раз.');
-        wp_send_json_success( 'Данные сохранены.');
+        wp_send_json_success( 'Данные сохранены.');*/
+
+        $user_login = preg_replace('#@.+#', '', $_POST['email']);
+        $user_password = wp_generate_password( 12 );
+        $userdata = array(
+            'user_login' => $user_login,
+            'user_pass'  => $user_password,
+            'user_email' => $_POST['email'],
+            'first_name' => $_POST['name'],
+            'description' => $_POST['resume'],
+            'show_admin_bar_front' => 'false',
+        );
+        $user_id = wp_insert_user( $userdata );
+        if (is_wp_error($user_id)) wp_send_json_error( $user_id->get_error_message() );
+        add_user_meta( $user_id, 'phone_1', $_POST['phone-1']);
+        if ($_POST['phone_2']) add_user_meta( $user_id, 'phone_2', $_POST['phone-2']);
+        add_user_meta( $user_id, 'age', $_POST['age']);
+        if ($_FILES['photo']) add_user_meta( $user_id, 'photo', $uploaded_imgs);
+
+        //wp_safe_redirect( 'wp-login.php?checkemail=registered' );
+        wp_send_json_success( $user_id);
+
+
     }
     else{
         wp_send_json_error('Эх!', 403);
